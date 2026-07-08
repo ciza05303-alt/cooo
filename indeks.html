@@ -1,0 +1,760 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>VELOCITY TUNING | Precision Automotive Engineering</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#343535",
+              error: "#ffb4ab",
+              "outline-variant": "#45464b",
+              "inverse-surface": "#e4e2e2",
+              "primary-container": "#0a0e17",
+              "on-primary-container": "#777b87",
+              "secondary-container": "#00f1fe",
+              "on-tertiary-fixed-variant": "#930100",
+              surface: "#131314",
+              "on-tertiary-fixed": "#410000",
+              secondary: "#ddfcff",
+              "on-tertiary": "#690100",
+              "surface-container": "#1f2020",
+              "surface-tint": "#c3c6d3",
+              "surface-container-low": "#1b1c1c",
+              "primary-fixed-dim": "#c3c6d3",
+              "inverse-primary": "#5a5e69",
+              "on-secondary-container": "#006a70",
+              "on-surface-variant": "#c6c6cc",
+              primary: "#c3c6d3",
+              "on-error-container": "#ffdad6",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-high": "#2a2a2a",
+              outline: "#909096",
+              "on-secondary-fixed": "#002022",
+              "surface-variant": "#343535",
+              "on-primary-fixed-variant": "#434751",
+              "on-tertiary-container": "#f70000",
+              "tertiary-container": "#270000",
+              "on-background": "#e4e2e2",
+              "surface-bright": "#393939",
+              "tertiary-fixed": "#ffdad4",
+              "on-error": "#690005",
+              "on-secondary-fixed-variant": "#004f54",
+              "inverse-on-surface": "#303030",
+              "primary-fixed": "#dfe2ef",
+              "on-surface": "#e4e2e2",
+              "secondary-fixed-dim": "#00dbe7",
+              background: "#131314",
+              tertiary: "#ffb4a8",
+              "on-secondary": "#00363a",
+              "on-primary-fixed": "#181b25",
+              "surface-dim": "#131314",
+              "error-container": "#93000a",
+              "on-primary": "#2c303a",
+              "secondary-fixed": "#74f5ff",
+              "tertiary-fixed-dim": "#ffb4a8",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-desktop": "64px",
+              "margin-mobile": "16px",
+              "container-max": "1440px",
+              base: "4px",
+              gutter: "24px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "display-lg-mobile": ["Montserrat"],
+              "label-sm": ["Inter"],
+              "headline-sm": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "label-md": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "display-lg-mobile": [
+                "40px",
+                { lineHeight: "1.2", fontWeight: "700" },
+              ],
+              "label-sm": ["12px", { lineHeight: "1", fontWeight: "500" }],
+              "headline-sm": ["24px", { lineHeight: "1.4", fontWeight: "600" }],
+              "display-lg": [
+                "64px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .glass-panel {
+        background: rgba(10, 14, 23, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .neon-glow-blue {
+        filter: drop-shadow(0 0 12px rgba(0, 242, 255, 0.4));
+      }
+      .neon-glow-red {
+        box-shadow: 0 0 20px rgba(247, 0, 0, 0.3);
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hover-lift {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .hover-lift:hover {
+        transform: translateY(-8px) scale(1.02);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container"
+  >
+    <!-- Top Navigation Bar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_0_15px_rgba(0,242,255,0.15)]"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto h-20"
+      >
+        <div class="flex items-center gap-4">
+          <img
+            alt="Velocity Tuning Logo"
+            class="h-10 w-auto neon-glow-blue"
+            src="https://lh3.googleusercontent.com/aida/AP1WRLs0wzEiG5pDPiu_1Kle-a9Vn7qzebxhZVpeMBfTmaIeZ0OiRMk5JednClvc3DGpE5GVM4fOpX_pu-Agmlw5BotbP65WKnVBL3urnIGXnGYWf4EaQA7UHmlifhexnqzpO0kVNO06vLAado2STcviNRvcUdQ2EyjQ4vavxfYHCQ6dSxMcYclSSL7hKpGZ8kGhGcodAkuHbEYQZFZa5o5J9ITdF8oVcbNlx8nWQZ4zInc9NlxUX4KYiAiHPTc"
+          />
+          <span
+            class="font-headline-sm text-headline-sm font-black tracking-tighter text-secondary hidden lg:block"
+            >VELOCITY TUNING</span
+          >
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            class="text-secondary border-b-2 border-secondary pb-1 font-label-md text-label-md transition-all duration-300"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant font-label-md text-label-md hover:scale-105 hover:text-secondary transition-all duration-300"
+            href="#"
+            >Services</a
+          >
+          <a
+            class="text-on-surface-variant font-label-md text-label-md hover:scale-105 hover:text-secondary transition-all duration-300"
+            href="#"
+            >Gallery</a
+          >
+          <a
+            class="text-on-surface-variant font-label-md text-label-md hover:scale-105 hover:text-secondary transition-all duration-300"
+            href="#"
+            >Events</a
+          >
+          <a
+            class="text-on-surface-variant font-label-md text-label-md hover:scale-105 hover:text-secondary transition-all duration-300"
+            href="#"
+            >Contacts</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <span
+            class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform"
+            data-icon="person"
+            >person</span
+          >
+          <span
+            class="material-symbols-outlined text-secondary cursor-pointer hover:scale-110 transition-transform"
+            data-icon="home"
+            >home</span
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <header
+      class="relative pt-32 pb-24 overflow-hidden min-h-screen flex items-center"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"
+        ></div>
+      </div>
+      <div
+        class="container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter relative z-20"
+      >
+        <div
+          class="flex flex-col justify-center space-y-8 scroll-reveal reveal-active"
+        >
+          <img
+            alt="Velocity Tuning Main"
+            class="w-72 h-auto neon-glow-blue mb-4"
+            src="https://lh3.googleusercontent.com/aida/AP1WRLs0wzEiG5pDPiu_1Kle-a9Vn7qzebxhZVpeMBfTmaIeZ0OiRMk5JednClvc3DGpE5GVM4fOpX_pu-Agmlw5BotbP65WKnVBL3urnIGXnGYWf4EaQA7UHmlifhexnqzpO0kVNO06vLAado2STcviNRvcUdQ2EyjQ4vavxfYHCQ6dSxMcYclSSL7hKpGZ8kGhGcodAkuHbEYQZFZa5o5J9ITdF8oVcbNlx8nWQZ4zInc9NlxUX4KYiAiHPTc"
+          />
+          <h1
+            class="font-display-lg text-display-lg leading-none uppercase italic"
+          >
+            Precision Engineering <br />
+            <span class="text-secondary-fixed-dim">For The Ultimate Drive</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Experience automotive excellence tailored for the elite. We redefine
+            performance through surgical precision, cutting-edge telemetry, and
+            bespoke craftsmanship.
+          </p>
+          <div class="flex gap-4 pt-4">
+            <button
+              class="bg-secondary-container text-on-secondary px-8 py-4 font-label-md text-label-md uppercase tracking-widest rounded-lg hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(0,242,255,0.3)]"
+            >
+              Explore Inventory
+            </button>
+            <button
+              class="border border-secondary text-secondary px-8 py-4 font-label-md text-label-md uppercase tracking-widest rounded-lg hover:bg-secondary/10 transition-all duration-300"
+            >
+              Our Heritage
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative flex justify-center items-center scroll-reveal reveal-active delay-300"
+        >
+          <div
+            class="absolute inset-0 bg-secondary-container/10 blur-[120px] rounded-full scale-75"
+          ></div>
+          <img
+            alt="Lamborghini Custom Tuning"
+            class="relative z-10 w-full max-w-3xl drop-shadow-[0_0_40px_rgba(0,241,254,0.3)] transform hover:rotate-1 transition-transform duration-700"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA29EroPtO0jGokWFMyQyYmVBIayUrkDyrshDTIO9Q2Yv-bBZ4q1PUL_4IQz6vFWRYuBur01-z-dUMQSN9F06l1Y9_xtDWsDuGfhDgpYmJBfY50FJiNM1bF6fLQ2sU-Q7avmFILQ5uq0sdXHrZKTop1bAsh8VAclJl4Xq17Y6qxOc1Sc5gxe8cIdNHEhRvmiYyorf8horZo2M4evRSl1HuPptL4MUcLoD3y0nZwVpKHGmEK9za32DQX"
+          />
+        </div>
+      </div>
+    </header>
+    <!-- Section 1: Service Quick Cards -->
+    <section class="py-24 bg-surface-container-lowest relative">
+      <div class="container-max mx-auto px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Card 1 -->
+          <div
+            class="glass-panel p-8 rounded-xl hover-lift border-t-2 border-t-secondary/30"
+          >
+            <div
+              class="w-16 h-16 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-secondary-fixed-dim text-3xl"
+                data-icon="speaker_group"
+                >speaker_group</span
+              >
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-secondary mb-4">
+              Car audio &amp; video
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              High-fidelity acoustic engineering and integrated multimedia
+              systems for a true theater-on-wheels experience.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="glass-panel p-8 rounded-xl hover-lift border-t-2 border-t-secondary/30"
+          >
+            <div
+              class="w-16 h-16 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-secondary-fixed-dim text-3xl"
+                data-icon="tire_repair"
+                >tire_repair</span
+              >
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-secondary mb-4">
+              Custom wheels &amp; tires
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Performance-spec alloys and premium rubber compounds designed for
+              maximum grip and unmatched aesthetic presence.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="glass-panel p-8 rounded-xl hover-lift border-t-2 border-t-secondary/30"
+          >
+            <div
+              class="w-16 h-16 bg-secondary-container/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-secondary-fixed-dim text-3xl"
+                data-icon="format_paint"
+                >format_paint</span
+              >
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-secondary mb-4">
+              Custom paint work
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Multi-stage specialized finishes, from frozen mattes to deep
+              pearls, applied with laboratory-grade precision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Block: Services & Welcome -->
+    <section class="py-24 relative overflow-hidden">
+      <div
+        class="container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-12"
+      >
+        <!-- Left Side: Vertical Services Menu -->
+        <div class="lg:col-span-4 scroll-reveal">
+          <div
+            class="glass-panel rounded-xl overflow-hidden border border-outline-variant/20"
+          >
+            <div class="p-6 bg-secondary/5 border-b border-outline-variant/20">
+              <h4
+                class="font-headline-sm text-headline-sm text-secondary uppercase tracking-widest"
+              >
+                Our Expertise
+              </h4>
+            </div>
+            <nav class="flex flex-col">
+              <a
+                class="p-5 flex justify-between items-center bg-secondary-container/10 border-r-4 border-secondary text-secondary group transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Car audio &amp; video</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center border-b border-outline-variant/10 text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Custom wheels &amp; tires</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center border-b border-outline-variant/10 text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Custom audio interiors</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center border-b border-outline-variant/10 text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Custom paint work</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center border-b border-outline-variant/10 text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Custom graphics</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center border-b border-outline-variant/10 text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Car events</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+              <a
+                class="p-5 flex justify-between items-center text-on-surface-variant hover:bg-white/5 hover:text-secondary transition-all"
+                href="#"
+              >
+                <span class="font-label-md text-label-md uppercase"
+                  >Residential window tinting</span
+                >
+                <span
+                  class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                  data-icon="arrow_forward_ios"
+                  >arrow_forward_ios</span
+                >
+              </a>
+            </nav>
+          </div>
+        </div>
+        <!-- Right Side: Welcome Block -->
+        <div class="lg:col-span-8 space-y-8 scroll-reveal">
+          <div class="relative">
+            <div
+              class="absolute -left-12 top-0 text-[180px] font-black text-white/5 select-none leading-none z-0"
+            >
+              VELOCITY
+            </div>
+            <div class="relative z-10">
+              <span
+                class="text-secondary-fixed-dim font-label-md text-label-md tracking-[0.4em] uppercase mb-4 block"
+                >Engineered for Adrenaline</span
+              >
+              <h2
+                class="font-headline-md text-headline-md text-on-surface mb-2"
+              >
+                Welcome to Velocity Tuning
+              </h2>
+              <h3
+                class="font-headline-sm text-headline-sm text-secondary-container italic mb-8"
+              >
+                Redefining Automotive Excellence
+              </h3>
+              <div class="space-y-6 max-w-3xl">
+                <p
+                  class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed"
+                >
+                  Since our inception, Velocity Tuning has pushed the boundaries
+                  of what is possible on four wheels. We don't just "fix" cars;
+                  we evolve them. Our team of specialist engineers combines
+                  aerospace technology with traditional craftsmanship to deliver
+                  performance that rivals the track.
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant/80">
+                  Every project we undertake is a unique collaboration between
+                  the owner and our design studio. From meticulous engine
+                  remapping to bespoke interior upholstery, every detail is
+                  engineered to perform and designed to stun.
+                </p>
+                <div class="pt-6">
+                  <button
+                    class="bg-on-tertiary-container text-white px-10 py-5 font-label-md text-label-md uppercase tracking-widest rounded-lg neon-glow-red hover:scale-105 transition-all duration-300"
+                  >
+                    More About Us
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Lower Block: Featured Service Showcase -->
+    <section class="py-24 bg-surface-container">
+      <div class="container-max mx-auto px-margin-desktop">
+        <h2
+          class="font-headline-md text-headline-md text-center mb-16 uppercase italic tracking-tighter"
+        >
+          Precision Showcase
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Showcase 1 -->
+          <div class="flex flex-col group scroll-reveal">
+            <div class="relative overflow-hidden rounded-xl h-64 mb-6">
+              <div
+                class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors z-10"
+              ></div>
+              <img
+                alt="Custom Graphics Showcase"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA29EroPtO0jGokWFMyQyYmVBIayUrkDyrshDTIO9Q2Yv-bBZ4q1PUL_4IQz6vFWRYuBur01-z-dUMQSN9F06l1Y9_xtDWsDuGfhDgpYmJBfY50FJiNM1bF6fLQ2sU-Q7avmFILQ5uq0sdXHrZKTop1bAsh8VAclJl4Xq17Y6qxOc1Sc5gxe8cIdNHEhRvmiYyorf8horZo2M4evRSl1HuPptL4MUcLoD3y0nZwVpKHGmEK9za32DQX"
+              />
+            </div>
+            <h4 class="font-headline-sm text-headline-sm text-secondary mb-3">
+              Custom graphics
+            </h4>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3"
+            >
+              Professional vinyl wraps and custom decals using aerospace-grade
+              materials for high-speed durability and stunning visuals.
+            </p>
+            <button
+              class="mt-auto self-start border border-secondary/30 text-secondary px-6 py-2 rounded font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all"
+            >
+              More
+            </button>
+          </div>
+          <!-- Showcase 2 -->
+          <div class="flex flex-col group scroll-reveal delay-200">
+            <div class="relative overflow-hidden rounded-xl h-64 mb-6">
+              <div
+                class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors z-10"
+              ></div>
+              <img
+                alt="Custom Audio Interior Showcase"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo72DhTRNWLTOdW5i8x06bjoMnE3MNRNMYwdm1fZFoqlA-kDoL_TkzRFL9nKRf_wlOijlJcJ2Y8V915wvbvt3kB4TH4wYML5bRCvIfKXNaYZBz4dSHdCskMx0rzcOlS64aR94v-fuYDjuBuqbNQr-OqAn_hxa4wFtk7Re1SzPzevuhwNfnXC8llhFKP2lHitbgTX3ENsVjKykNfY7ht91PLVLq5cEqcVdQDj05SYaSUcfIsgjo5BDP"
+              />
+            </div>
+            <h4 class="font-headline-sm text-headline-sm text-secondary mb-3">
+              Custom audio interiors
+            </h4>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3"
+            >
+              Fiber-optic lighting integrated with bespoke JL Audio soundscapes,
+              crafted from carbon fiber and premium leathers.
+            </p>
+            <button
+              class="mt-auto self-start border border-secondary/30 text-secondary px-6 py-2 rounded font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all"
+            >
+              More
+            </button>
+          </div>
+          <!-- Showcase 3 -->
+          <div class="flex flex-col group scroll-reveal delay-400">
+            <div class="relative overflow-hidden rounded-xl h-64 mb-6">
+              <div
+                class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors z-10"
+              ></div>
+              <img
+                alt="Window Tinting Showcase"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAebkpQVD_aB_xMlnqwjFBiLcHYR3WD-wQhbr3PASJvpXk5o_xKoJDvnTtybyOY4wt8G_ZfRcYQ9xUin2CYp5lPw5pP4tpDZAMCvG6LPldnyxDrXe6MAPfoTtTmOcSyf2cOStWxLhhPZ1YzBeOEx-4gbSvw69_Oh9SRqRzNb4TFVvDEfztpxzoMSW5FlzGYc1OLNXqccpxNrLNgkvhqkeLFnb6NRbZH7gh6tNN93zWb6mNWXtDWx63G"
+              />
+            </div>
+            <h4 class="font-headline-sm text-headline-sm text-secondary mb-3">
+              Residential window tinting
+            </h4>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3"
+            >
+              Nanoceramic film technologies applied to luxury residences,
+              providing heat rejection and complete UV protection.
+            </p>
+            <button
+              class="mt-auto self-start border border-secondary/30 text-secondary px-6 py-2 rounded font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all"
+            >
+              More
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest border-t border-outline-variant/50 pt-16 pb-8"
+    >
+      <div
+        class="container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter mb-12"
+      >
+        <div class="col-span-1 md:col-span-2">
+          <img
+            alt="Velocity Tuning Footer"
+            class="h-12 w-auto mb-6 grayscale brightness-150"
+            src="https://lh3.googleusercontent.com/aida/AP1WRLs0wzEiG5pDPiu_1Kle-a9Vn7qzebxhZVpeMBfTmaIeZ0OiRMk5JednClvc3DGpE5GVM4fOpX_pu-Agmlw5BotbP65WKnVBL3urnIGXnGYWf4EaQA7UHmlifhexnqzpO0kVNO06vLAado2STcviNRvcUdQ2EyjQ4vavxfYHCQ6dSxMcYclSSL7hKpGZ8kGhGcodAkuHbEYQZFZa5o5J9ITdF8oVcbNlx8nWQZ4zInc9NlxUX4KYiAiHPTc"
+          />
+          <p
+            class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-6"
+          >
+            Velocity Tuning is the premier destination for high-performance
+            automotive modification and lifestyle enhancement.
+          </p>
+          <div class="flex space-x-4">
+            <span
+              class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-white transition-colors"
+              data-icon="language"
+              >language</span
+            >
+            <span
+              class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-white transition-colors"
+              data-icon="verified"
+              >verified</span
+            >
+            <span
+              class="material-symbols-outlined text-secondary-fixed-dim cursor-pointer hover:text-white transition-colors"
+              data-icon="terminal"
+              >terminal</span
+            >
+          </div>
+        </div>
+        <div>
+          <h5
+            class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-6"
+          >
+            Performance Hub
+          </h5>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >ECU Remapping</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Suspension Tuning</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Exhaust Systems</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Aerodynamics</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5
+            class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-6"
+          >
+            Legal &amp; Connect
+          </h5>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Terms of Service</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Track Locations</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-on-surface-variant hover:text-secondary transition-colors"
+                href="#"
+                >Partner Program</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="container-max mx-auto px-margin-desktop pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center text-label-sm font-label-sm text-on-surface-variant/60 uppercase tracking-widest"
+      >
+        <p>© 2024 VELOCITY TUNING. ENGINEERED FOR ADRENALINE.</p>
+        <p class="mt-4 md:mt-0">Designed for the 1%.</p>
+      </div>
+    </footer>
+    <script>
+      // Scroll Reveal Implementation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-active");
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".scroll-reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Micro-interaction for top nav on scroll
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("py-2", "bg-surface/95");
+          nav.classList.remove("py-4");
+        } else {
+          nav.classList.remove("py-2", "bg-surface/95");
+          nav.classList.add("py-4");
+        }
+      });
+    </script>
+  </body>
+</html>
